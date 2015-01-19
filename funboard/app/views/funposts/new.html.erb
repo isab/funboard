@@ -1,0 +1,8 @@
+<div class = "funpost" >
+	<%= simple_form_for @funpost do |f| %>
+		<%= f.input :title, label: 'Name It', as: :text %><br>
+		<%= f.input :description, label: 'Talk About It', as: :text %><br>
+		<%= f.input :url, label: 'Link It', as: :text %><br>
+		<%= f.button :submit %>
+	<% end %>
+</div>
