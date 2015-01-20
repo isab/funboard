@@ -10,10 +10,10 @@
   <a href ="www.github.com/isab">Github</a>
 </div>
 <div class = "postarea">
-<%= @funposts.each do |d| %>
+<% @funposts.each do |d| %>
 	<h2><%= d.title %></h2>
 	<p><%= d.description %>
-	<p><a href= <%= d.url %> ><img src= <%= d.url %> width="500px"></a>
+	<p><a href= <%= d.url %> ><img src= <%= d.url %> width="500px" ></a>
 <% end %>
 
 <p><%= paginate @funposts %></p>
