@@ -1,6 +1,6 @@
 class FunpostsController < ApplicationController
   def index
-  	@funposts = Funpost.page(params[:page]).per(25)
+  	@funposts = Funpost.page(params[:page]).per(15)
   end
 
   def new

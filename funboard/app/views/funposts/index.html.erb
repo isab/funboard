@@ -1,35 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Fun Board</title>
-    <%= stylesheet_link_tag 'funposts.css', media: 'all',
-                                           'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
-  </head>
-  <body>
-  	<h1>Fun Board</h1> 
-  	<div class = "about">
-  		<p>Hey There Whsdknfjksdnfksdj sdfnkjsdn sdfj nsdkfn 
-  		sdjfnks djnfk jsdnf k sdjfn ksdnf skdjnf sdkjn
-  		<p><%= link_to "Add FunPost", new_funpost_path %></p>
-  	</div>
-  	<div class = "postarea">
-		<%= @funposts.each do |d| %>
-			<h2><%= d.title %></h2>
-			<p><%= d.description %>
-			<p><a href= <%= d.url %> ><img src= <%= d.url %> width="500px"></a>
-		<% end %>
+<h1>Fun Board</h1> 
+<div class = "about">
+  <strong><h3>INFO</h3></strong>
+  A little pet project. Post away or browse to your heart's content. Made for laughs.
+  <strong><h3>RULES</h3></strong>
+  <li>GIFS and Images only.</li>
+  <li>Dont' be RUDE.</li>
+  <p>
+  <%= link_to "Add FunPost", new_funpost_path %><br>
+  <a href ="www.github.com/isab">Github</a>
+</div>
+<div class = "postarea">
+<%= @funposts.each do |d| %>
+	<h2><%= d.title %></h2>
+	<p><%= d.description %>
+	<p><a href= <%= d.url %> ><img src= <%= d.url %> width="500px"></a>
+<% end %>
 
-		<p><%= paginate @funposts %></p>
-	</div>
-    <div class="container">
-      <%= yield %>
-    </div>
-  </body>
-</html>
+<p><%= paginate @funposts %></p>
+ </div>
+<div class="container">
+  <%= yield %>
+</div>
+
 
