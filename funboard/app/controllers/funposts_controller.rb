@@ -1,6 +1,6 @@
 class FunpostsController < ApplicationController
   def index
-  	@funposts = Funpost.page(params[:page]).per(15)
+  	@funposts = Funpost.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def new
@@ -14,5 +14,9 @@ class FunpostsController < ApplicationController
   	else
   		render "new"
   	end
+  end
+
+  def show
+    @funpost = Funpost.find(params[:id])
   end
 end
