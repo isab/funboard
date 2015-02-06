@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  funposts_id: 
+  tag_id: 
+
+two:
+  funposts_id: 
+  tag_id: 

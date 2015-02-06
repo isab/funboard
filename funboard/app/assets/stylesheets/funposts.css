@@ -4,41 +4,36 @@ body {
   font: 15px Courier New;
 }
 
-.postarea {
-	top: 50px;
-	bottom: 100px;
-	left: 550px;
-  width: 500px;
-  text-align: center;
-  position: absolute;
+#about {
+  color: #ff6600;
+	margin-top: 10px;
+	margin-left: 180px;
+	width: 300px;
+  float: left;
+  background: transparent;
+	text-align: center;
 }
 
-.about {
-  color: #ff6600;
-	top: 230px;
-	bottom: 100px;
-	left: 210px;
-	width: 300px;
-  height: 384px;
-  background: #99ffcc;
-  border-right: #ffffff solid 5px;
-  border-left: #ff6600 solid 5px;
-  padding-right: 5px;
-  padding-left: 5px;
-	text-align: center;
-	position: fixed;
+.aboutfixed {
+  width: 300px;
+  position: fixed;
+}
+
+#postarea {
+  margin-top: 55px;
+  margin-left: 50px;
+  width: 500px;
+  float: left;
+  text-align: center;
 }
 
 h1 {
 	background: transparent;
 	color: #ffffff;
 	font: 80px Courier New;
-	position: fixed;
 	width: 320px;
 	margin: 0px;
-	top: 20px;
-	left: 210px;
-	text-align: center;
+  text-align: center;
   display: inline-block;
 	border-bottom: #ff6600 solid 10px;
 }
@@ -55,8 +50,16 @@ h2 {
 }
 
 h3 {
-  color: #ff6600;
-  font: 100px Courier New;
+  color: #99ffcc;
+  font: 80px Courier New;
+  margin: 0px;
+  top: 0px;
+  padding: 0px;
+}
+
+h4 {
+  color: #99ffcc;
+  font: 35px Courier New;
   margin: 0px;
   top: 0px;
   padding: 0px;

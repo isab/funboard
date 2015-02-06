@@ -1,23 +1,31 @@
-<h1>Fun Board</h1> 
-<div class = "about">
-  <strong><h3>INFO</h3></strong>
-  A little pet project. Post away or browse to your heart's content. Made for laughs.
-  <strong><h3>RULES</h3></strong>
-  <li>GIFS and Images only.</li>
-  <li>Dont' be RUDE.</li>
-  <p>
-  <%= link_to "Add FunPost", new_funpost_path %><br>
-  <a href ="www.github.com/isab">Github</a>
+<div id = "about">
+  <div class = "aboutfixed">
+    <h1>Fun Board</h1> 
+    <strong><h3>INFO</h3></strong>
+    A little pet project. Post away or browse to your heart's content. Made for laughs.
+    <strong><h3>RULES</h3></strong>
+    <li>GIFS and IMAGES only.</li>
+    <li>Separate TAGS with COMMAS.</li>
+    <li>DON'T BE rude.</li>
+    <br>
+    <%= link_to "Add FunPost", new_funpost_path %><p></p>
+    <strong><h4>Tags Cloud</h4></strong>
+    <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
 </div>
-<div class = "postarea">
-<% @funposts.each do |d| %>
-	<h2><%= d.title %></h2>
-	<p><%= d.description %>
-	<p><a href= <%= d.url %> ><img src= <%= d.url %> width="500px" ></a>
-<% end %>
+<div id = "postarea">
+  <% @funposts.each do |d| %>
+  	<h2><%= d.title %></h2>
+  	<p><%= d.description %>
+  	<p><a href= <%= d.url %> ><img src= <%= d.url %> width="500px" ></a>
+    <p><%= time_ago_in_words(d.created_at) %> of fun
+    <br>Tags: <%= raw tag_links(d.all_tags) %>
+  <% end %>
 
-<p><%= paginate @funposts %></p>
- </div>
+  <p><%= paginate @funposts %></p>
+</div>
 <div class="container">
   <%= yield %>
 </div>

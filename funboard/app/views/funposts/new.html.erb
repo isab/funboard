@@ -1,22 +1,29 @@
-<h1>Fun Board</h1>
-  	<div class = "about">
-      <strong><h3>INFO</h3></strong>
-      A little pet project. Post away or browse to your heart's content. Made for laughs.
-      <strong><h3>RULES</h3></strong>
-      <li>GIFS and Images only.</li>
-      <li>Dont' be RUDE.</li>
-      <p>
-      <%= link_to "Add FunPost", new_funpost_path %><br>
-      <a href ="www.github.com/isab">Github</a>
-  	</div>
-	<div class = "postarea" >
-		<%= simple_form_for @funpost do |f| %>
-			<%= f.input :title, label: 'Name It', as: :text %><br>
-			<%= f.input :description, label: 'Talk About It', as: :text %><br>
-			<%= f.input :url, label: 'Link It', as: :text %><br>
-			<%= f.button :submit %>
-		<% end %>
-	</div>
-    <div class="container">
-      <%= yield %>
-    </div>
+<div id = "about">
+  <div class = "aboutfixed">
+    <h1>Fun Board</h1> 
+    <strong><h3>INFO</h3></strong>
+    A little pet project. Post away or browse to your heart's content. Made for laughs.
+    <strong><h3>RULES</h3></strong>
+    <li>GIFS and IMAGES only.</li>
+    <li>Separate TAGS with COMMAS.</li>
+    <li>DON'T BE rude.</li>
+    <br>
+    <%= link_to "Add FunPost", new_funpost_path %><p></p>
+    <strong><h4>Tags Cloud</h4></strong>
+    <% tag_cloud Tag.counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
+</div>
+<div id = "postarea" >
+	<%= simple_form_for @funpost do |f| %>
+		<%= f.input :title, label: 'Name It', as: :text %><br>
+		<%= f.input :description, label: 'Talk About It', as: :text %><br>
+    <%= f.input :all_tags, label: 'Tag It', as: :text %><br>
+		<%= f.input :url, label: 'Link It', as: :text %><br>
+		<%= f.button :submit %>
+	<% end %>
+</div>
+<div class="container">
+  <%= yield %>
+</div>
